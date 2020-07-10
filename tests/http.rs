@@ -34,7 +34,7 @@ Content-Length: 93\r
         
         let changeset = Changeset::new(t_request_str.as_str(), request_str.as_str(), "\n");
 
-        //println!("{}", changeset);
+        println!("{}", changeset);
 
         assert_eq!(request_str, t_request_str);
     }
@@ -45,6 +45,6 @@ Content-Length: 93\r
 
         let mut response = Response::new(200);
 
-        
+
     }
 }
