@@ -41,6 +41,10 @@ Content-Length: 93\r
 
     #[test]
     fn test_http_response() {
+        use pit::{Response};
 
+        let mut response = Response::new(200);
+
+        
     }
 }

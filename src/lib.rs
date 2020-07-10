@@ -37,6 +37,14 @@ impl Request {
 
     //method functions
 
+    pub fn set_method(&mut self, method: &str) {
+        self.method = String::from(method);
+    }
+
+    pub fn set_version(&mut self, version: &str) {
+        self.version = String::from(version);
+    }
+
     pub fn set_body(&mut self, body: &str) {
         self.body = String::from(body);
 
@@ -63,4 +71,16 @@ impl Request {
     }
 
 
+}
+
+#[allow(dead_code)]
+pub struct Response {
+    status: u32,
+    reason_phrase: String,
+    headers: Vec<(String, String)>,
+    body: String 
+}
+
+impl Response {
+    
 }
