@@ -45,6 +45,34 @@ Content-Length: 93\r
 
         let mut response = Response::new(200);
 
+        response.set_reason_phrase("OK");
 
+        response.set_header_attr("Date", "Mon, 27 Jul 2009 12:28:53 GMT");
+        response.set_header_attr("Server", "Apache/2.2.14 (Win32)");
+        response.set_header_attr("Last-Modified", "Wed, 22 Jul 2009 19:15:56 GMT");
+        response.set_header_attr("Connection", "Closed");
+        response.set_header_attr("Content-Type", "text/html");
+
+        response.set_body("<html><body><h1>Hello World!</h1></body></html>");
+
+        let response_str = response.build();
+
+        let t_response_str = String::from(
+"HTTP/1.1 200 OK\r
+Date: Mon, 27 Jul 2009 12:28:53 GMT\r
+Server: Apache/2.2.14 (Win32)\r
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT\r
+Connection: Closed\r
+Content-Type: text/html\r
+Content-Length: 47\r
+\r
+<html><body><h1>Hello World!</h1></body></html>"
+    );
+
+        let changeset = Changeset::new(t_response_str.as_str(), response_str.as_str(), "\n");
+
+        println!("{}", changeset);
+
+        assert_eq!(response_str, t_response_str);
     }
 }
