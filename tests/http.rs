@@ -37,6 +37,10 @@ Content-Length: 93\r
         println!("{}", changeset);
 
         assert_eq!(request_str, t_request_str);
+
+        let reconst_req = Request::parse(t_request_str);
+
+        assert_eq!(reconst_req, request);
     }
 
     #[test]
@@ -74,5 +78,9 @@ Content-Length: 47\r
         println!("{}", changeset);
 
         assert_eq!(response_str, t_response_str);
+
+        let reconst_resp = Response::parse(t_response_str);
+
+        //assert_eq!(reconst_resp, response);
     }
 }
